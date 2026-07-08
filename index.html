@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<meta name="theme-color" content="#EAE3D7"/>
+<meta name="description" content="Digital Marketing Mentor. Learn social media marketing on your phone and start earning from home. 500+ students trained."/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Rakhshii — Mentoring women since 2019"/>
+<meta property="og:description" content="One-on-one mentorship for working women. Four weeks. One skill. From your phone."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_IN"/>
+<meta property="og:image" content="assets/hero.jpg"/>
+<title>Rakhshii — Mentoring women since 2019</title>
+
+<!-- META PIXEL — Rakhshii Pixel + Manual Advanced Matching -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
+.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+// AM (Manual Advanced Matching) — landing page has no email/phone form (lead capture is WhatsApp).
+// We seed external_id with an empty array here, then re-init later once the fingerprint is computed.
+// This establishes the AM structure (so Meta stops complaining) without sending PII we don't have.
+fbq('init','979352074476790',{external_id:[]},{autoConfig:false});
+fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'Landing Page',content_category:'Affiliate Marketing Mentor',content_type:'product'});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=979352074476790&ev=PageView&noscript=1"/></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"/>
+
+<style>
+/* ════ TOKENS — Warm Cream + blend · mobile-first ════ */
+:root{
+  --bg:#EAE3D7; --bg2:#F0EBE0; --paper:#FBF8F1; --cream2:#E3DBCB;
+  --ink:#2A2320; --ink2:#6B5E54; --ink3:#A99C90;
+  --rose:#B0506A; --rosed:#934056; --roset:#F1E2E4;
+  --gold:#C9A24B; --gold2:#E0C079; --goldt:#F4ECD6;
+  --wa:#25D366; --wa2:#1EBE5A; --wagl:rgba(37,211,102,.28);
+  --bad:#C25E72; --good:#3FA77E;
+  --bdr:rgba(42,35,32,.10); --bdr2:rgba(176,80,106,.26);
+  --sh-sm:0 2px 12px rgba(120,90,80,.10);
+  --sh-md:0 16px 40px rgba(120,80,80,.14);
+  --sh-lg:0 30px 80px rgba(120,75,75,.18);
+  --nav:60px; --py:clamp(56px,12vw,104px); --rp:999px; --rl:24px; --maxw:1160px;
+  --grad:linear-gradient(100deg,var(--rosed),var(--gold));
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;text-size-adjust:100%;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.68;font-size:16px;padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.04;font-weight:600;letter-spacing:-.015em}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--rosed);outline-offset:3px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E")}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+section{position:relative;padding:var(--py) 0;z-index:2}
+.lbl{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--rosed)}
+.divline{width:50px;height:3px;border-radius:3px;margin:14px 0 18px;background:var(--grad)}
+.h2{font-size:clamp(2.2rem,8.5vw,3.5rem);color:var(--ink);font-weight:600}
+.sub{color:var(--ink2);font-size:1.02rem;margin-top:14px;max-width:54ch}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.rv,.rvl{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rvl{transform:translateY(26px) scale(.98)}
+.rv.on,.rvl.on{opacity:1;transform:none}
+
+/* ════ BLEND IMAGE (photo bg ghulta hai theme me — koi cutout/box nahi) ════ */
+.blendimg{position:relative}
+.blendimg img{position:relative;z-index:1;width:100%;display:block;
+  -webkit-mask-image:linear-gradient(to top,#000 68%,transparent 100%);mask-image:linear-gradient(to top,#000 68%,transparent 100%)}
+
+/* ════ NAV ════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav);padding:0 18px;display:flex;justify-content:space-between;align-items:center;
+  background:rgba(234,227,215,.8);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);
+  border-bottom:1px solid transparent;transition:border-color .35s,box-shadow .35s,background .35s}
+nav.dark{border-bottom:1px solid var(--bdr);box-shadow:var(--sh-sm);background:rgba(234,227,215,.94)}
+.nav-logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:8px;user-select:none}
+.nav-logo .dot{width:9px;height:9px;border-radius:50%;background:var(--grad)}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--wa),var(--wa2));color:#fff;font-size:.78rem;font-weight:700;min-height:40px;padding:0 16px;border-radius:var(--rp);box-shadow:0 4px 16px var(--wagl);transition:transform .16s;white-space:nowrap}
+.nav-cta:active{transform:scale(.93)}
+@media(hover:hover){.nav-cta:hover{transform:translateY(-2px)}}
+
+/* ════ BUTTONS ════ */
+.btn-wa{display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg,var(--wa),var(--wa2));color:#fff;font-weight:700;font-size:1.02rem;min-height:58px;padding:0 26px;border-radius:var(--rp);box-shadow:0 10px 30px var(--wagl);transition:transform .2s,box-shadow .2s;width:100%;position:relative;overflow:hidden;cursor:pointer;border:none}
+.btn-wa::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:translateX(-120%);transition:transform .7s}
+.btn-wa:active{transform:scale(.97)}
+@media(hover:hover){.btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 40px var(--wagl)}.btn-wa:hover::before{transform:translateX(120%)}}
+.btn-xl{font-size:1.1rem;min-height:64px}
+.bww{margin-top:24px}
+.rsure,.fnote{margin-top:12px;font-size:.82rem;color:var(--ink2);text-align:center}
+
+/* ════ HERO ════ */
+#hero{position:relative;overflow:hidden;padding-top:calc(var(--nav) + 30px);
+  background:radial-gradient(70% 60% at 50% 100%,#E6E0D4 0,transparent 60%),radial-gradient(80% 50% at 0% 0%,var(--goldt) 0,transparent 55%),var(--bg)}
+.hinner{position:relative;z-index:3}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--paper);border:1px solid var(--bdr2);color:var(--rosed);font-weight:700;font-size:.72rem;padding:8px 15px;border-radius:var(--rp);box-shadow:var(--sh-sm)}
+.hh1{font-size:clamp(2.4rem,9.5vw,4rem);margin:18px 0 0;color:var(--ink);font-weight:600;overflow-wrap:break-word}
+.hh1 em{font-style:italic;font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.hsub{color:var(--ink2);font-size:1.08rem;margin-top:18px;max-width:34ch}
+.hsub strong{color:var(--ink);font-weight:700}
+.hloc{margin-top:9px;font-size:.85rem;color:var(--ink3);font-weight:600}
+.proof{display:flex;align-items:center;gap:12px;margin-top:24px}
+.faces{display:flex}
+.face{width:40px;height:40px;border-radius:50%;border:2.5px solid var(--bg);margin-left:-13px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;background:linear-gradient(135deg,var(--goldt),var(--roset));box-shadow:var(--sh-sm)}
+.face:first-child{margin-left:0}
+.ptxt{font-size:.83rem;color:var(--ink2);line-height:1.45}
+.ptxt strong{display:block;color:var(--ink);font-size:.93rem}
+/* hero photo — blended, stacked on mobile (below text), side on desktop */
+.hero-fig{position:relative;margin-top:14px}
+.hero-fig::before{content:'';position:absolute;z-index:0;left:50%;top:42%;transform:translate(-50%,-50%);width:96%;height:84%;border-radius:50%;background:radial-gradient(closest-side,#EFEAE0,rgba(239,234,224,0) 72%)}
+.hbadge{position:absolute;z-index:4;right:6%;bottom:8%;background:var(--paper);border-radius:16px;padding:11px 15px;box-shadow:var(--sh-md);border:1px solid var(--bdr);text-align:center}
+.hbadge .n{font-family:'Fraunces';font-size:1.5rem;font-weight:700;color:var(--rosed);line-height:1}
+.hbadge .l{font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);margin-top:3px}
+.hfloat{display:none} /* mobile-only floating chip; desktop never shows it */
+/* mobile-only: second floating chip + gentle bob — desktop (≥880px) is untouched */
+@media(max-width:879px){
+  .hbadge{animation:bobA 4.4s ease-in-out infinite}
+  .hfloat{display:flex;align-items:center;gap:9px;position:absolute;z-index:5;left:4%;top:8%;
+    background:var(--paper);border:1px solid var(--bdr);border-radius:14px;padding:8px 11px;
+    box-shadow:var(--sh-md);pointer-events:none;animation:bobB 5.2s ease-in-out infinite}
+  .hf-ic{width:29px;height:29px;border-radius:50%;background:linear-gradient(135deg,#D8B65A,#C9A24B);
+    color:#fff;font-weight:700;font-size:.9rem;display:grid;place-items:center;flex:0 0 auto}
+  .hf-tx{display:flex;flex-direction:column;line-height:1.12;text-align:left}
+  .hf-tx b{font-size:.71rem;color:var(--ink);font-weight:700}
+  .hf-tx span{font-size:.61rem;color:var(--ink2);margin-top:2px;white-space:nowrap}
+  @keyframes bobA{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @keyframes bobB{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+}
+@media(prefers-reduced-motion:reduce){.hbadge,.hfloat{animation:none}}
+
+/* ════ TICKER ════ */
+.tkwrap{background:var(--ink);color:var(--bg);overflow:hidden;padding:14px 0;position:relative;z-index:2}
+.tkinner{display:flex;gap:36px;white-space:nowrap;width:max-content;animation:tick 30s linear infinite}
+.tki{display:inline-flex;align-items:center;gap:9px;font-size:.86rem;font-weight:600;opacity:.95}
+.tki b{color:var(--gold2);font-size:1rem}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ════ SHIFT (before/after) ════ */
+#shift{background:linear-gradient(180deg,var(--bg),var(--bg2))}
+.shead{text-align:center;max-width:46ch;margin:0 auto}
+.shead .divline{margin:14px auto 18px}.shead .sub{margin-left:auto;margin-right:auto}
+.tgwrap{max-width:520px;margin:36px auto 0}
+.tgl-in{position:absolute;opacity:0;pointer-events:none}
+.toggle{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:26px}
+.tgl-lab{position:relative;width:98px;height:46px;border-radius:var(--rp);cursor:pointer;flex:none;background:linear-gradient(135deg,#D98A98,var(--bad));box-shadow:inset 0 2px 8px rgba(0,0,0,.18);transition:background .45s}
+.tgl-knob{position:absolute;top:4px;left:4px;width:38px;height:38px;border-radius:50%;background:#fff;box-shadow:0 4px 10px rgba(0,0,0,.22);transition:left .45s cubic-bezier(.5,1.6,.5,1);display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+.tgl-side{font-family:'Fraunces';font-weight:700;font-size:1.02rem;transition:color .4s,opacity .4s}
+.tgl-before{color:var(--bad)}.tgl-after{color:var(--ink3);opacity:.5}
+#tgl:checked~.toggle .tgl-lab{background:linear-gradient(135deg,#67C39B,var(--good))}
+#tgl:checked~.toggle .tgl-knob{left:56px}
+#tgl:checked~.toggle .tgl-before{color:var(--ink3);opacity:.5}
+#tgl:checked~.toggle .tgl-after{color:var(--good);opacity:1}
+.panels{position:relative;display:grid}
+.panel{grid-area:1/1;background:var(--paper);border:1px solid var(--bdr);border-radius:22px;padding:14px 20px;box-shadow:var(--sh-md);transition:opacity .45s,transform .45s}
+.panel li{list-style:none;display:flex;align-items:flex-start;gap:13px;padding:13px 4px;font-weight:600;color:var(--ink);font-size:.96rem;border-bottom:1px solid var(--bdr)}
+.panel li:last-child{border-bottom:none}
+.panel .ic{width:26px;height:26px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;color:#fff;margin-top:1px}
+.before .ic{background:var(--bad)}
+.after{opacity:0;transform:translateY(8px);pointer-events:none}
+.after .ic{background:var(--good)}
+#tgl:checked~.tgwrap .before{opacity:0;transform:translateY(-8px);pointer-events:none}
+#tgl:checked~.tgwrap .after{opacity:1;transform:none;pointer-events:auto}
+.shiftnote{text-align:center;font-size:.92rem;color:var(--rosed);font-weight:600;margin-top:20px}
+
+/* ════ INTRO quote ════ */
+#intro{background:var(--ink);color:#fff;text-align:center}
+#intro .iquote{font-family:'Fraunces';font-style:italic;font-size:clamp(1.5rem,5.5vw,2.3rem);max-width:22ch;margin:0 auto;line-height:1.3;color:#fff}
+#intro .iquote .gd{color:var(--gold2);font-style:italic}
+#intro .isign{font-size:.9rem;color:rgba(255,255,255,.65);margin-top:18px;letter-spacing:.04em}
+
+/* ════ LEARN ════ */
+.lgrid{display:grid;gap:34px}
+.sklist{list-style:none;margin-top:24px;display:grid;gap:12px;counter-reset:sk}
+.sklist li{display:flex;align-items:center;gap:15px;background:var(--paper);border:1px solid var(--bdr);border-radius:16px;padding:16px 18px;box-shadow:var(--sh-sm);font-weight:600;color:var(--ink);transition:transform .2s,box-shadow .2s,border-color .2s}
+@media(hover:hover){.sklist li:hover{transform:translateY(-2px);box-shadow:var(--sh-md);border-color:var(--bdr2)}}
+.sklist li::before{counter-increment:sk;content:counter(sk,decimal-leading-zero);font-family:'Fraunces';font-weight:700;color:var(--gold);font-size:1.1rem;flex:none}
+.sko{width:42px;height:42px;flex:none;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:linear-gradient(135deg,var(--goldt),var(--roset))}
+.skmeta{margin-left:auto;font-size:.7rem;color:var(--ink3);font-weight:700}
+.learn-fig{position:relative}
+.learn-fig::before{content:'';position:absolute;z-index:0;left:50%;top:42%;transform:translate(-50%,-50%);width:96%;height:84%;border-radius:50%;background:radial-gradient(closest-side,#E7E6E0,rgba(231,230,224,0) 72%)}
+
+/* ════ TRUST ════ */
+.tc{text-align:center;max-width:48ch;margin:0 auto}
+.tc .divline{margin:14px auto 18px}.tc .sub{margin-left:auto;margin-right:auto}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+.tcard{background:var(--paper);border:1px solid var(--bdr);border-radius:18px;padding:22px 17px;box-shadow:var(--sh-sm);transition:transform .25s,box-shadow .25s}
+@media(hover:hover){.tcard:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}}
+.tci{font-size:1.7rem;display:block}
+.tct{font-family:'Fraunces';font-weight:600;font-size:1.12rem;margin:11px 0 6px}
+.tcd{font-size:.85rem;color:var(--ink2);line-height:1.55}
+.tcard:last-child{grid-column:1/-1}
+
+/* ════ TESTIMONIALS ════ */
+#testi{background:var(--bg2)}
+.tscroll{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:30px;padding:6px 2px 18px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tscroll::-webkit-scrollbar{display:none}
+.tcard2{flex:0 0 84%;max-width:340px;scroll-snap-align:center;background:var(--paper);border:1px solid var(--bdr);border-radius:22px;padding:22px;box-shadow:var(--sh-md)}
+.dmtop{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.dmav{width:42px;height:42px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
+.dmname{font-weight:700;font-size:.93rem;line-height:1.1}
+.dmrole{font-size:.72rem;color:var(--ink3)}
+.dmverify{margin-left:auto;color:var(--wa)}
+.tst{color:var(--gold);letter-spacing:2px;font-size:.85rem;margin-bottom:9px}
+.bubble{background:var(--roset);border-radius:4px 16px 16px 16px;padding:14px 16px}
+.ttx{font-size:.9rem;color:var(--ink);line-height:1.6}
+
+/* ════ ABOUT ════ */
+#about{overflow:hidden}
+.ainner{display:grid;gap:34px}
+.about-fig{position:relative}
+.about-fig::before{content:'';position:absolute;z-index:0;left:50%;top:42%;transform:translate(-50%,-50%);width:96%;height:86%;border-radius:50%;background:radial-gradient(closest-side,#E9E7E2,rgba(233,231,226,0) 72%)}
+.about-fig .acap{position:absolute;z-index:4;left:6%;bottom:14%;background:rgba(251,248,241,.92);backdrop-filter:blur(6px);border-radius:13px;padding:9px 14px;box-shadow:var(--sh-md)}
+.acap .nm{font-family:'Fraunces';font-weight:700;font-size:1rem;color:var(--ink)}
+.acap .rl{font-size:.68rem;color:var(--ink2);font-weight:600}
+.atext h2{margin-top:4px}
+.atext p{color:var(--ink2);margin-top:15px}.atext p strong{color:var(--ink)}
+.srow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.sbox{background:var(--paper);border:1px solid var(--bdr);border-radius:16px;padding:17px 13px;text-align:center;box-shadow:var(--sh-sm)}
+.snum{font-family:'Fraunces';font-size:1.8rem;font-weight:700;color:var(--rosed);line-height:1}
+.slbl{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink2);margin-top:5px}
+.apills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.apill{background:var(--paper);border:1px solid var(--bdr2);border-radius:var(--rp);padding:8px 14px;font-size:.78rem;font-weight:600}
+
+/* ════ WHO ════ */
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:30px}
+.wcard{background:var(--paper);border:1px solid var(--bdr);border-radius:16px;padding:22px 12px;text-align:center;box-shadow:var(--sh-sm)}
+.wico{font-size:1.8rem;display:block}.wlbl{font-weight:700;font-size:.9rem;margin-top:9px}
+.wcard:last-child{grid-column:1/-1}
+
+/* ════ FINAL ════ */
+#final{text-align:center;overflow:hidden;background:radial-gradient(120% 90% at 50% 0,var(--roset) 0,transparent 58%),linear-gradient(160deg,var(--bg2),var(--goldt))}
+.badge{display:inline-flex;align-items:center;gap:7px;background:var(--ink);color:var(--bg);font-size:.72rem;font-weight:700;padding:8px 17px;border-radius:var(--rp);margin-bottom:20px}
+.fbody{color:var(--ink2);font-size:1.08rem;margin-top:16px;max-width:30ch;margin-left:auto;margin-right:auto}
+.fgrp{max-width:400px;margin:28px auto 0}
+
+footer{background:var(--ink);color:rgba(255,255,255,.62);text-align:center;padding:36px 22px;font-size:.82rem;position:relative;z-index:2}
+footer .fl{color:var(--gold2);font-family:'Fraunces';font-size:1.1rem;font-weight:700;margin-bottom:7px}
+
+.fab{position:fixed;right:16px;bottom:16px;z-index:850;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--wa),var(--wa2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.7rem;box-shadow:0 10px 28px var(--wagl);cursor:pointer;border:none;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 10px 28px var(--wagl)}50%{box-shadow:0 10px 28px var(--wagl),0 0 0 12px rgba(37,211,102,.12)}}
+.fab:active{transform:scale(.9)}
+
+@media(max-width:380px){.nav-logo{font-size:1.06rem}.nav-cta{font-size:.72rem;padding:0 13px}}
+
+/* ════ DESKTOP ════ */
+@media(min-width:880px){
+  body{font-size:17px}
+  /* hero: text left, photo blended absolute right */
+  #hero{min-height:92vh;display:flex;align-items:center}
+  #hero .wrap{width:100%}
+  .hinner{max-width:52%}
+  .hero-fig{position:absolute;right:0;bottom:0;top:0;width:50%;margin:0;z-index:2}
+  .hero-fig::before{top:50%;width:88%;height:80%}
+  .hero-fig img{height:100%;width:100%;object-fit:cover;object-position:center 12%;
+    -webkit-mask-image:linear-gradient(to left,#000 56%,transparent 96%);mask-image:linear-gradient(to left,#000 56%,transparent 96%)}
+  .hbadge{right:14%;bottom:14%}
+  .lgrid{grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+  /* learn photo (RIGHT column) → all four edges dissolve into the page, inner (left) faded more */
+  .learn-fig img{aspect-ratio:4/4.4;object-fit:cover;object-position:center 16%;
+    -webkit-mask-image:linear-gradient(to right,transparent 1%,#000 42%,#000 84%,transparent 100%),linear-gradient(to bottom,transparent 1%,#000 14%,#000 72%,transparent 100%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right,transparent 1%,#000 42%,#000 84%,transparent 100%),linear-gradient(to bottom,transparent 1%,#000 14%,#000 72%,transparent 100%);mask-composite:intersect}
+  .ainner{grid-template-columns:.95fr 1.05fr;gap:50px;align-items:center}
+  /* about photo (LEFT column) → all four edges dissolve, inner (right) faded more */
+  .about-fig img{aspect-ratio:4/4.4;object-fit:cover;object-position:center 14%;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 16%,#000 58%,transparent 100%),linear-gradient(to bottom,transparent 1%,#000 14%,#000 72%,transparent 100%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right,transparent 0,#000 16%,#000 58%,transparent 100%),linear-gradient(to bottom,transparent 1%,#000 14%,#000 72%,transparent 100%);mask-composite:intersect}
+  .tgrid{grid-template-columns:repeat(3,1fr)}.tcard:last-child{grid-column:auto}
+  .wgrid{grid-template-columns:repeat(5,1fr)}.wcard:last-child{grid-column:auto}
+  .tcard2{flex-basis:31%}
+  .hsub{font-size:1.16rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav" role="navigation">
+  <div class="nav-logo"><span class="dot"></span> Rakhshii</div>
+  <div class="nav-cta" role="button" tabindex="0" aria-label="Chat on WhatsApp" data-fbq-event="Lead" data-wa="1" data-wa-src="nav_top_btn">&#x1F4AC; WhatsApp</div>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hinner rv">
+      <div class="eyebrow">&#x2728; Social Media &amp; Digital Marketing Mentor</div>
+      <h1 class="hh1">Start Earning<br><em>From Your Phone</em></h1>
+      <p class="hsub">Hi, I&#x2019;m <strong>Rakhshii</strong> &mdash; Mentoring women since 2019. I help working women build a real second income &mdash; from your phone, thirty minutes a day.</p>
+      <p class="hloc">&#x2022; From India &middot; Helping people since 2019</p>
+      <div class="proof">
+        <div class="faces" aria-hidden="true"><div class="face">&#x1F469;</div><div class="face">&#x1F9D5;</div><div class="face">&#x1F469;&#x200D;&#x1F4BC;</div><div class="face">&#x1F9D1;</div></div>
+        <div class="ptxt"><strong>500+ Students Already Started</strong>Started from zero &mdash; just like you &#x2764;&#xFE0F;</div>
+      </div>
+      <div class="bww">
+        <div class="btn-wa" role="button" tabindex="0" aria-label="Start your journey on WhatsApp" data-fbq-event="Lead" data-wa="1" id="hero-btn" data-wa-src="hero_main_cta">&#x1F449; Start Your Journey</div>
+        <p class="rsure">No experience needed &nbsp;&bull;&nbsp; I&#x2019;ll guide you step by step</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-fig blendimg rvl">
+    <img src="assets/hero.jpg" width="736" height="1051" alt="Rakhshii — Mentoring women since 2019" fetchpriority="high"/>
+    <div class="hbadge"><div class="n">500+</div><div class="l">Students<br>Trained</div></div>
+    <div class="hfloat"><div class="hf-ic">★</div><div class="hf-tx"><b>4.9 / 5.0 rating</b><span>Loved by students</span></div></div>
+  </div>
+</section>
+
+<div class="tkwrap" aria-label="Highlights">
+  <div class="tkinner" aria-hidden="true">
+    <span class="tki"><b>&#x2736;</b> 500+ Students Trained</span><span class="tki"><b>&#x1F4B8;</b> Earn From Your Phone</span><span class="tki"><b>&#x1F331;</b> No Experience Needed</span><span class="tki"><b>&#x1F3E0;</b> Work From Home</span><span class="tki"><b>&#x2728;</b> Beginner Friendly</span><span class="tki"><b>&#x1F4F1;</b> Phone Is Enough</span><span class="tki"><b>&#x2764;&#xFE0F;</b> Real Support</span>
+    <span class="tki"><b>&#x2736;</b> 500+ Students Trained</span><span class="tki"><b>&#x1F4B8;</b> Earn From Your Phone</span><span class="tki"><b>&#x1F331;</b> No Experience Needed</span><span class="tki"><b>&#x1F3E0;</b> Work From Home</span><span class="tki"><b>&#x2728;</b> Beginner Friendly</span><span class="tki"><b>&#x1F4F1;</b> Phone Is Enough</span><span class="tki"><b>&#x2764;&#xFE0F;</b> Real Support</span>
+  </div>
+</div>
+
+
+<!-- ════ INTRO quote ════ -->
+<section id="intro">
+  <div class="wrap rv">
+    <p class="iquote">&ldquo;You are not alone &mdash; I&#x2019;ve been <span class="gd">exactly where</span> you are right now.&rdquo;</p>
+    <p class="isign">&mdash; Rakhshii</p>
+  </div>
+</section>
+
+<!-- ════ LEARN ════ -->
+<section id="learn">
+  <div class="wrap">
+    <div class="lgrid">
+      <div class="rv">
+        <span class="lbl">What You&#x2019;ll Learn</span>
+        <div class="divline"></div>
+        <h2 class="h2">Skills That <span class="grad">Actually</span> Pay</h2>
+        <p class="sub">Real in-demand digital skills. Learn them on your phone, in your own time.</p>
+        <ul class="sklist">
+          <li><span class="sko">&#x1F4F2;</span>Social Media Marketing<span class="skmeta">In demand</span></li>
+          <li><span class="sko">&#x1F3A8;</span>Canva &amp; Content Design<span class="skmeta">Easy</span></li>
+          <li><span class="sko">&#x270D;&#xFE0F;</span>Content &amp; Reels Creation<span class="skmeta">Viral</span></li>
+          <li><span class="sko">&#x1F916;</span>AI Tools (Practical)<span class="skmeta">New</span></li>
+          <li><span class="sko">&#x1F517;</span>Affiliate Marketing<span class="skmeta">Passive</span></li>
+        </ul>
+        <div class="bww">
+          <div class="btn-wa" role="button" tabindex="0" aria-label="I want to learn this" data-fbq-event="Lead" data-wa="1" data-wa-src="learn_section_btn">&#x1F449; I Want To Learn This</div>
+          <p class="rsure">Starting from zero is perfectly fine &#x2764;&#xFE0F;</p>
+        </div>
+      </div>
+      <div class="learn-fig blendimg rvl"><img src="assets/learn.jpg" width="736" height="1097" alt="Learn marketing skills" loading="lazy"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TRUST ════ -->
+<section id="trust">
+  <div class="wrap">
+    <div class="tc rv">
+      <span class="lbl">Why Trust Me</span>
+      <div class="divline"></div>
+      <h2 class="h2">Real Results. Real Support.</h2>
+      <p class="sub">No fake promises. No shortcuts. Just honest guidance that genuinely works.</p>
+    </div>
+    <div class="tgrid">
+      <div class="tcard rv"><span class="tci">&#x1F393;</span><div class="tct">500+ Trained</div><div class="tcd">Hundreds of people have started their journey with my help.</div></div>
+      <div class="tcard rv"><span class="tci">&#x1F331;</span><div class="tct">Beginner-Friendly</div><div class="tcd">Never earned online? That&#x2019;s exactly where I start you.</div></div>
+      <div class="tcard rv"><span class="tci">&#x1F5FA;&#xFE0F;</span><div class="tct">Step-by-Step</div><div class="tcd">Clear steps, no jargon. I&#x2019;m with you at every stage.</div></div>
+      <div class="tcard rv"><span class="tci">&#x1F3E0;</span><div class="tct">Work From Home</div><div class="tcd">Your phone. Your pace. Your home.</div></div>
+      <div class="tcard rv"><span class="tci">&#x1F49B;</span><div class="tct">Real Support</div><div class="tcd">I personally reply. You&#x2019;re never just a number.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TESTIMONIALS ════ -->
+<section id="testi">
+  <div class="wrap">
+    <div class="tc rv">
+      <span class="lbl">Student Stories</span>
+      <div class="divline"></div>
+      <h2 class="h2">What They Say &#x1F4AC;</h2>
+      <p class="sub">Real students. Real results. No script.</p>
+    </div>
+    <div class="tscroll rv" role="list">
+      <div class="tcard2" role="listitem"><div class="dmtop"><div class="dmav">Z</div><div><div class="dmname">Zara S.</div><div class="dmrole">Student &middot; Hyderabad</div></div><div class="dmverify">&#x2714;&#xFE0F;</div></div><div class="tst">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div><div class="bubble"><p class="ttx">&ldquo;I thought I couldn&#x2019;t do it. But she explained it so simply. I started earning in my very first month.&rdquo;</p></div></div>
+      <div class="tcard2" role="listitem"><div class="dmtop"><div class="dmav">F</div><div><div class="dmname">Fatima R.</div><div class="dmrole">Homemaker &middot; Mumbai</div></div><div class="dmverify">&#x2714;&#xFE0F;</div></div><div class="tst">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div><div class="bubble"><p class="ttx">&ldquo;As a housewife I had no idea about digital marketing. She guided me step by step, and now I earn from my phone.&rdquo;</p></div></div>
+      <div class="tcard2" role="listitem"><div class="dmtop"><div class="dmav">N</div><div><div class="dmname">Nadia K.</div><div class="dmrole">Freelancer &middot; Pune</div></div><div class="dmverify">&#x2714;&#xFE0F;</div></div><div class="tst">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div><div class="bubble"><p class="ttx">&ldquo;I was job hunting for months. After her guidance I started managing social media, and today I have 3 clients.&rdquo;</p></div></div>
+      <div class="tcard2" role="listitem"><div class="dmtop"><div class="dmav">R</div><div><div class="dmname">Rukhsar A.</div><div class="dmrole">Part-time &middot; Delhi</div></div><div class="dmverify">&#x2714;&#xFE0F;</div></div><div class="tst">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div><div class="bubble"><p class="ttx">&ldquo;I was a complete beginner with just a phone. Today I earn extra income from affiliate marketing. Thank you!&rdquo;</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ABOUT ════ -->
+<section id="about">
+  <div class="wrap">
+    <div class="ainner">
+      <div class="about-fig blendimg rvl">
+        <img src="assets/about.jpg" width="736" height="1068" alt="Rakhshii" loading="lazy"/>
+        <div class="acap"><div class="nm">Rakhshii</div><div class="rl">Mentor &middot; Since 2019</div></div>
+      </div>
+      <div class="atext rv">
+        <span class="lbl">The Mentor</span>
+        <div class="divline"></div>
+        <h2 class="h2">My Story &amp; Mission</h2>
+        <p>I started this journey because I wanted to become <strong>financially independent</strong> &mdash; without leaving home, without compromising my values.</p>
+        <p>Today I earn from <strong>multiple digital sources</strong>, and my only mission is to help people like you do the same.</p>
+        <p>My goal: to help <strong>1000 people become financially free</strong> &mdash; students, homemakers, anyone ready to try.</p>
+        <div class="srow">
+          <div class="sbox"><div class="snum">500+</div><div class="slbl">Students Trained</div></div>
+          <div class="sbox"><div class="snum">5+</div><div class="slbl">Years Experience</div></div>
+          <div class="sbox"><div class="snum">5</div><div class="slbl">Skills Taught</div></div>
+          <div class="sbox"><div class="snum">&#x221E;</div><div class="slbl">Support Given</div></div>
+        </div>
+        <div class="apills">
+          <span class="apill">&#x1F4B8; My Earnings</span><span class="apill">&#x1F3AF; My Goal</span><span class="apill">&#x1F9D5; Helping Women</span><span class="apill">&#x1F4DA; Students</span><span class="apill">&#x1F4AF; Honest Guidance</span>
+        </div>
+        <div class="bww">
+          <div class="btn-wa" role="button" tabindex="0" aria-label="Message me on WhatsApp" data-fbq-event="Lead" data-wa="1" data-wa-src="about_mentor_btn">&#x1F4AC; Message Me on WhatsApp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHO ════ -->
+<section id="who">
+  <div class="wrap">
+    <div class="tc rv">
+      <span class="lbl">Who Can Join</span>
+      <div class="divline"></div>
+      <h2 class="h2">This Is For You If&hellip;</h2>
+      <p class="sub">No degree. No laptop. No experience. Just a phone and the will to grow.</p>
+    </div>
+    <div class="wgrid">
+      <div class="wcard rv"><span class="wico">&#x1F4DA;</span><div class="wlbl">Students</div></div>
+      <div class="wcard rv"><span class="wico">&#x1F3E0;</span><div class="wlbl">Housewives</div></div>
+      <div class="wcard rv"><span class="wico">&#x1F50D;</span><div class="wlbl">Job Seekers</div></div>
+      <div class="wcard rv"><span class="wico">&#x23F0;</span><div class="wlbl">Part-Time Earners</div></div>
+      <div class="wcard rv"><span class="wico">&#x2728;</span><div class="wlbl">Complete Beginners</div></div>
+    </div>
+    <div style="text-align:center;margin-top:32px" class="rv">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;max-width:380px;margin:0 auto">
+        <div class="btn-wa" role="button" tabindex="0" aria-label="Yes I am ready" data-fbq-event="Lead" data-wa="1" data-wa-src="who_join_btn">&#x1F4AC; Yes, I&#x2019;m Ready To Join</div>
+        <p class="rsure">Free to message &nbsp;&bull;&nbsp; No commitment needed</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FINAL ════ -->
+<section id="final">
+  <div class="wrap rv">
+    <div class="badge">&#x1F525; Limited Seats &nbsp;|&nbsp; Beginners Welcome</div>
+    <h2 class="h2">One step can change<br><span class="grad">your life</span> &#x1F4AF;</h2>
+    <p class="fbody">You&#x2019;ve been thinking about this for a while. You deserve this. I&#x2019;m just one message away. &#x2764;&#xFE0F;</p>
+    <div class="fgrp">
+      <div class="btn-wa btn-xl" role="button" tabindex="0" aria-label="Start your journey" data-fbq-event="Lead" data-wa="1" id="final-btn" data-wa-src="final_cta_btn">&#x1F4AC; Start Your Journey</div>
+      <p class="fnote">No experience needed &nbsp;&bull;&nbsp; Step by step guidance &nbsp;&bull;&nbsp; Free to message</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">&#x2728; Rakhshii</div>
+  <p>&copy; 2026 Rakhshii &mdash; Mentoring women since 2019</p>
+  <p style="margin-top:4px">Made with &#x2764;&#xFE0F; for everyone who dares to dream</p>
+</footer>
+
+<button class="fab" aria-label="Chat on WhatsApp" data-fbq-event="Lead" data-wa="1" data-wa-src="floating_fab">&#x1F4AC;</button>
+
+<script>
+/* SIGNAL INTELLIGENCE ENGINE v8.1 — ported 1:1 from Asma v8.1. Set CFG.GAS_URL, CFG.WA_URL, Pixel ID. */
+(function () {
+  'use strict';
+  var CFG = {
+    GAS_URL:'https://script.google.com/macros/s/AKfycbx6J4rZ3vmapo7Jjpj-8LaMv6B0jdiZA8x2lY9h0jZ5YlVT5CwPcT7T29zuaXYQDeLU6Q/exec',
+    WA_URL:'https://wa.me/918082521698?text=Salaam%20Rakhshii%2C%20I%20would%20like%20to%20talk',
+    VERSION:'8.1', TIER_HIGH:65, TIER_MED:40, TIER_LOW:12,
+    HIGH_TESTI_S:12, HIGH_HESIT_MIN:500, HIGH_HESIT_MAX:10000, VALUE_MIN:50, VALUE_MAX:500,
+    WEIGHTS:{time_on_page:0.30,scroll_depth:0.25,scroll_reversals:0.20,section_attn:0.15,copy_detected:0.10},
+  };
+  function getCookieRaw(n){var m=document.cookie.match(new RegExp('(?:^|;\\s*)'+n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'=([^;]*)'));return m?m[1]:'';}
+  function getRawParam(k){var e=k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');var m=window.location.search.match(new RegExp('[?&]'+e+'=([^&]*)'));return m?m[1]:'';}
+  var PAGE_LOAD_TS=Math.floor(Date.now()/1000);
+  function buildFbc(f){return f?'fb.1.'+PAGE_LOAD_TS+'.'+f:'';}
+  function resolveFbc(){var c=getCookieRaw('_fbc');if(c)return c;var f=getRawParam('fbclid');if(f)return buildFbc(f);return '';}
+  var IDENTITY={
+    fingerprint:'',sessionId:'',visitId:'',mouseEvents:0,touchEvents:0,firstClickTs:0,
+    buildCanvas:function(){try{var c=document.createElement('canvas'),x=c.getContext('2d');x.textBaseline='top';x.font='14px Arial';x.fillStyle='#f60';x.fillRect(125,1,62,20);x.fillStyle='#069';x.fillText('LP♥',2,15);x.fillStyle='rgba(102,204,0,.7)';x.fillText('LP♥',4,17);return c.toDataURL().slice(-50);}catch(_){return 'nc';}},
+    buildAudio:function(){try{var a=new (window.AudioContext||window.webkitAudioContext)({sampleRate:44100});var o=a.createOscillator(),n=a.createAnalyser(),g=a.createGain();g.gain.value=0;o.connect(n);o.connect(g);g.connect(a.destination);o.start(0);var b=new Float32Array(n.frequencyBinCount);n.getFloatFrequencyData(b);a.close();return b.slice(0,5).reduce(function(s,v){return s+Math.abs(v);},0).toFixed(6);}catch(_){return 'na';}},
+    buildPlatform:function(){try{var g=document.createElement('canvas').getContext('webgl');if(!g)return navigator.platform||'np';var d=g.getExtension('WEBGL_debug_renderer_info');if(!d)return navigator.platform||'nd';var r=g.getParameter(d.UNMASKED_RENDERER_WEBGL)||'';return r.length>5?r.substring(0,40):(navigator.platform||'nb');}catch(_){return navigator.platform||'ne';}},
+    build:async function(){var raw=this.buildCanvas()+'|'+this.buildAudio()+'|'+this.buildPlatform()+'|'+window.screen.width+'x'+window.screen.height+'x'+window.screen.colorDepth+'|'+(Intl&&Intl.DateTimeFormat?Intl.DateTimeFormat().resolvedOptions().timeZone:'')+'|'+(navigator.language||'');this.fingerprint=await hashStr(raw);var s=getLS('lp_vid');if(s&&s.fp===this.fingerprint){this.visitId=s.vid;}else{this.visitId=uuid4();setLS('lp_vid',{fp:this.fingerprint,vid:this.visitId,created:Date.now()});}this.sessionId=uuid4();},
+    initBotDetection:function(){var s=this;document.addEventListener('mousemove',function(){s.mouseEvents++;},{passive:true});document.addEventListener('touchstart',function(){s.touchEvents++;},{passive:true});document.addEventListener('click',function(){if(!s.firstClickTs)s.firstClickTs=Date.now();},{passive:true,once:true});},
+    isBotLikely:function(){if(navigator.webdriver)return true;var t=this.mouseEvents+this.touchEvents;var e=(Date.now()-STATE.startTime)/1000;if(e>6&&t===0)return true;if(this.firstClickTs&&(this.firstClickTs-STATE.startTime)<200)return true;return false;},
+  };
+  var STATE={startTime:Date.now(),maxScrollPct:0,scrollReversals:0,lastScrollY:0,scrollPxTotal:0,scrollStartMs:Date.now(),sectionsViewed:[],sectionDwellMap:{},testiDwellS:0,copyDetected:false,hoverStartMs:0,hesitationMs:0,visitCount:1,isRepeat:false,prevBest:0,fbc:'',fbp:'',rawFbclid:'',utmSource:'',utmMedium:'',utmCampaign:'',connectionSpeed:'unknown',eventsCount:0,waClicked:false,_busy:false};
+  var SCORE={
+    raw:{time:0,scroll:0,reversals:0,sections:0,copy:0},prevBest:0,
+    compute:function(){var w=CFG.WEIGHTS;var r=this.raw.time*w.time_on_page+this.raw.scroll*w.scroll_depth+this.raw.reversals*w.scroll_reversals+this.raw.sections*w.section_attn+this.raw.copy*w.copy_detected;if(IDENTITY.isBotLikely())r=Math.min(r,0.08);if(this.prevBest>=50&&STATE.isRepeat)r=Math.min(1,r+0.06);return Math.round(r*100);},
+    toValue:function(s){return Math.round(CFG.VALUE_MIN+(CFG.VALUE_MAX-CFG.VALUE_MIN)*(s/100));},
+    loadHistory:function(){var h=getLS('lp_sh');if(!h)return;this.prevBest=h.best||0;STATE.prevBest=h.best||0;if(h.scroll>0)this.raw.scroll=Math.min(1,(h.scroll/100)*0.5);},
+    saveHistory:function(s){setLS('lp_sh',{best:Math.max(s,this.prevBest),scroll:STATE.maxScrollPct,last:Date.now()});},
+  };
+  function uuid4(){return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){var r=Math.random()*16|0;return (c==='x'?r:(r&0x3|0x8)).toString(16);});}
+  async function hashStr(s){if(!s||!window.crypto||!window.crypto.subtle)return '';try{var b=new TextEncoder().encode(s.trim().toLowerCase());var h=await window.crypto.subtle.digest('SHA-256',b);return Array.from(new Uint8Array(h)).map(function(x){return x.toString(16).padStart(2,'0');}).join('');}catch(_){return '';}}
+  function setLS(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}
+  function getLS(k){try{return JSON.parse(localStorage.getItem(k)||'null');}catch(_){return null;}}
+  function getDeviceType(){return /tablet|ipad/i.test(navigator.userAgent)?'tablet':/mobile|android|iphone/i.test(navigator.userAgent)?'mobile':'desktop';}
+  function getConnection(){try{var c=navigator.connection||navigator.mozConnection;return c?(c.effectiveType||'unk'):'unk';}catch(_){return 'unk';}}
+  function timeOnPage(){return Math.round((Date.now()-STATE.startTime)/1000);}
+  async function init(){
+    await IDENTITY.build();IDENTITY.initBotDetection();
+    STATE.fbc=resolveFbc();STATE.fbp=getCookieRaw('_fbp');STATE.rawFbclid=getRawParam('fbclid');
+    STATE.utmSource=getRawParam('utm_source');STATE.utmMedium=getRawParam('utm_medium');STATE.utmCampaign=getRawParam('utm_campaign');
+    var v=(getLS('lp_v')||0)+1;setLS('lp_v',v);STATE.visitCount=v;STATE.isRepeat=v>1;
+    SCORE.loadHistory();STATE.connectionSpeed=getConnection();
+    // AM (Manual Advanced Matching) — re-init with fingerprint as external_id so Meta can
+    // dedup the anonymous PageView against the same user's later Lead event.
+    // Landing page has no email/phone form, so external_id is the only AM signal we have.
+    if(typeof fbq==='function'){try{fbq('init','979352074476790',{external_id:IDENTITY.fingerprint?[IDENTITY.fingerprint]:[]},{autoConfig:false});}catch(_){}}
+    fetchWeights();initTimeBuckets();initScrollTracking();initSectionTracking();initCopyDetection();initExitIntent();initButtonBindings();sendOpenEvent();
+    console.log('[v8.1] Ready | fp:',IDENTITY.fingerprint.substring(0,10)+'…','| v#'+v);
+  }
+  function fetchWeights(){if(!CFG.GAS_URL||CFG.GAS_URL==='YOUR_GAS_ENDPOINT_HERE')return;fetch(CFG.GAS_URL+'?action=get_weights').then(function(r){return r.json();}).then(function(d){if(d&&d.weights&&typeof d.weights==='object'){Object.keys(d.weights).forEach(function(k){if(k in CFG.WEIGHTS&&typeof d.weights[k]==='number'&&d.weights[k]>=0&&d.weights[k]<=1)CFG.WEIGHTS[k]=d.weights[k];});}}).catch(function(){});}
+  function initTimeBuckets(){setTimeout(function(){SCORE.raw.time=Math.min(1,30/120);sendToGAS('EngagedUser','engaged_30s',uuid4(),{trigger:'30s',score:SCORE.compute()});if(typeof fbq==='function'){try{fbq('trackCustom','EngagedUser',{trigger:'30s'});}catch(_){}}},30000);[60000,120000].forEach(function(ms){setTimeout(function(){SCORE.raw.time=Math.min(1,(ms/1000)/120);},ms);});}
+  function initScrollTracking(){var T={},lastMs=Date.now(),lastPct=0,tick=false;window.addEventListener('scroll',function(){if(tick)return;tick=true;requestAnimationFrame(function(){var now=Date.now();var pct=Math.round(((window.scrollY+window.innerHeight)/document.documentElement.scrollHeight)*100);var dt=now-lastMs;STATE.scrollPxTotal+=Math.abs(window.scrollY-STATE.lastScrollY);if(window.scrollY<STATE.lastScrollY-80){STATE.scrollReversals++;SCORE.raw.reversals=Math.min(1,STATE.scrollReversals*0.15);}STATE.lastScrollY=window.scrollY;var b=Math.floor(lastPct/10)*10;T[b]=(T[b]||0)+dt;lastMs=now;lastPct=pct;if(pct>STATE.maxScrollPct)STATE.maxScrollPct=pct;var wD=0,wT=0;Object.keys(T).forEach(function(d){wD+=(parseInt(d,10)/100)*T[d];wT+=T[d];});var bl=wT>0?(wD/wT)*0.7+(pct/100)*0.3:pct/100;var el=(Date.now()-STATE.scrollStartMs)/1000;var vel=el>0?STATE.scrollPxTotal/el:0;var pen=vel>300?Math.min(0.15,(vel-300)/3000):0;SCORE.raw.scroll=Math.max(0,Math.min(1,bl-pen));tick=false;});},{passive:true});}
+  function initSectionTracking(){if(!('IntersectionObserver' in window))return;var S=[{id:'intro',weight:1.5},{id:'trust',weight:2.0},{id:'learn',weight:2.5},{id:'testi',weight:2.5},{id:'about',weight:1.5},{id:'final',weight:2.5}];var tW=S.reduce(function(a,s){return a+s.weight;},0);S.forEach(function(sec){var el=document.getElementById(sec.id);if(!el)return;new IntersectionObserver(function(es){es.forEach(function(en){var sd=STATE.sectionDwellMap[sec.id]=STATE.sectionDwellMap[sec.id]||{totalS:0,enterMs:0};if(en.isIntersecting){sd.enterMs=Date.now();}else if(sd.enterMs){sd.totalS+=(Date.now()-sd.enterMs)/1000;sd.enterMs=0;if(sec.id==='testi')STATE.testiDwellS=sd.totalS;if(STATE.sectionsViewed.indexOf(sec.id)===-1)STATE.sectionsViewed.push(sec.id);var sw=0;STATE.sectionsViewed.forEach(function(id){var s2=S.find(function(x){return x.id===id;});if(s2)sw+=s2.weight*Math.min(1,(STATE.sectionDwellMap[id]||{totalS:0}).totalS/20);});SCORE.raw.sections=Math.min(1,sw/tW);}});},{threshold:[0,0.5]}).observe(el);});}
+  function initCopyDetection(){document.addEventListener('copy',function(){STATE.copyDetected=true;SCORE.raw.copy=1.0;},{passive:true});document.addEventListener('selectionchange',function(){try{if((window.getSelection()||{}).toString().length>=8){STATE.copyDetected=true;if(SCORE.raw.copy<0.8)SCORE.raw.copy=0.8;}}catch(_){}},{passive:true});}
+  function initExitIntent(){var f=false;function ex(t){if(f||STATE.waClicked)return;f=true;SCORE.saveHistory(SCORE.compute());sendToGAS('ExitIntent','exit',uuid4(),{trigger:t,score_at_exit:SCORE.compute(),scroll_at_exit:STATE.maxScrollPct,time_at_exit:timeOnPage(),testi_dwell:STATE.testiDwellS});}document.addEventListener('mouseleave',function(e){if(e.clientY<=5)ex('mouse_top');});document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')ex('tab');});window.addEventListener('pagehide',function(){ex('page_hide');});window.addEventListener('beforeunload',function(){ex('unload');});}
+  function initButtonBindings(){document.querySelectorAll('[data-wa="1"]').forEach(function(el){var label=el.getAttribute('data-wa-src')||el.id||'btn';el.addEventListener('mouseenter',function(){STATE.hoverStartMs=Date.now();},{passive:true});el.addEventListener('touchstart',function(e){if(e.target===el||el.contains(e.target))STATE.hoverStartMs=Date.now();},{passive:true});el.addEventListener('touchend',function(e){e.preventDefault();goWA(label);},{passive:false});el.addEventListener('click',function(e){e.preventDefault();goWA(label);});el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();goWA(label);}});});}
+  function goWA(buttonId){
+    if(STATE._busy)return;STATE._busy=true;STATE.waClicked=true;setTimeout(function(){STATE._busy=false;},1600);
+    if(STATE.hoverStartMs>0)STATE.hesitationMs=Date.now()-STATE.hoverStartMs;
+    var score=SCORE.compute(),value=SCORE.toValue(score),clickTs=Date.now();
+    var tq=STATE.testiDwellS>=CFG.HIGH_TESTI_S;var hq=STATE.hesitationMs>=CFG.HIGH_HESIT_MIN&&STATE.hesitationMs<=CFG.HIGH_HESIT_MAX;
+    var tier=(score>=CFG.TIER_HIGH&&(tq||hq))?'HIGH':score>=CFG.TIER_MED?'MED':score>=CFG.TIER_LOW?'LOW':'JUNK';
+    SCORE.saveHistory(score);
+    if(tier==='JUNK'){setTimeout(function(){window.open(CFG.WA_URL,'_blank','noopener,noreferrer');},350);return;}
+    var eventId=uuid4();
+    if(typeof fbq==='function'){try{fbq('track','Lead',{value:value,currency:'INR',eventID:eventId});fbq('track','Contact',{eventID:eventId+'_contact'});}catch(_){}}
+    sendToGAS('Lead',buttonId,eventId,{click_ts:clickTs,client_tier:tier,testi_s:STATE.testiDwellS,hesit_ms:STATE.hesitationMs,sections:STATE.sectionsViewed.join(',')});
+    setTimeout(function(){window.open(CFG.WA_URL,'_blank','noopener,noreferrer');},350);
+  }
+  async function sendOpenEvent(){var id=uuid4();if(typeof fbq==='function'){try{fbq('track','ViewContent',{eventID:id});}catch(_){}}sendToGAS('ViewContent','page_load',id,{});}
+  async function sendToGAS(eventName,buttonId,eventId,extras){
+    if(!CFG.GAS_URL||CFG.GAS_URL==='YOUR_GAS_ENDPOINT_HERE')return;
+    if(STATE.eventsCount>25)return;STATE.eventsCount++;
+    var p={event_name:eventName,event_id:eventId,page_url:window.location.href,referrer:document.referrer||'',fingerprint:IDENTITY.fingerprint,visit_id:IDENTITY.visitId,session_id:IDENTITY.sessionId,user_agent:navigator.userAgent,fbc:STATE.fbc,fbp:STATE.fbp,fbclid:STATE.rawFbclid,device_type:getDeviceType(),language:navigator.language||'',connection:STATE.connectionSpeed,hour_of_day:new Date().getHours(),day_of_week:new Date().getDay(),utm_source:STATE.utmSource,utm_medium:STATE.utmMedium,utm_campaign:STATE.utmCampaign,is_repeat:STATE.isRepeat,visit_count:STATE.visitCount,prev_best_score:SCORE.prevBest,time_on_page:timeOnPage(),max_scroll_pct:STATE.maxScrollPct,scroll_reversals:STATE.scrollReversals,sections_viewed:STATE.sectionsViewed.join(','),copy_detected:STATE.copyDetected,lead_score:SCORE.compute(),is_bot_likely:IDENTITY.isBotLikely(),testimonials_dwell_s:STATE.testiDwellS,hesitation_ms:STATE.hesitationMs};
+    if(extras)Object.keys(extras).forEach(function(k){p[k]=extras[k];});
+    var body=JSON.stringify(p),sent=false;
+    if(typeof navigator.sendBeacon==='function'){try{sent=navigator.sendBeacon(CFG.GAS_URL,new Blob([body],{type:'text/plain;charset=UTF-8'}));}catch(_){sent=false;}}
+    if(!sent){try{await fetch(CFG.GAS_URL,{method:'POST',body:body,keepalive:true,headers:{'Content-Type':'text/plain;charset=UTF-8'}});}catch(_){}}
+  }
+  var rv=document.querySelectorAll('.rv,.rvl');if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');o.unobserve(e.target);}});},{threshold:0.05,rootMargin:'0px 0px -20px 0px'});rv.forEach(function(el){o.observe(el);});}else{rv.forEach(function(el){el.classList.add('on');});}
+  var nv=document.getElementById('nav');if(nv){window.addEventListener('scroll',function(){nv.classList.toggle('dark',window.scrollY>50);},{passive:true});}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+</body>
+</html>
