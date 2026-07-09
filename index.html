@@ -20,6 +20,7 @@ n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq
 // AM (Manual Advanced Matching) — landing page has no email/phone form (lead capture is WhatsApp).
 // We seed external_id with an empty array here, then re-init later once the fingerprint is computed.
 // This establishes the AM structure (so Meta stops complaining) without sending PII we don't have.
+fbq('init','4674881929398451',{external_id:[]},{autoConfig:false});
 fbq('track','PageView');
 fbq('track','ViewContent',{content_name:'Landing Page',content_category:'Affiliate Marketing Mentor',content_type:'product'});
 </script>
@@ -462,12 +463,13 @@ footer .fl{color:var(--gold2);font-family:'Fraunces';font-size:1.1rem;font-weigh
 <button class="fab" aria-label="Chat on WhatsApp" data-fbq-event="Lead" data-wa="1" data-wa-src="floating_fab">&#x1F4AC;</button>
 
 <script>
-/* SIGNAL INTELLIGENCE ENGINE v8.1 — ported 1:1 from Asma v8.1. Set CFG.GAS_URL, CFG.WA_URL, Pixel ID. */
+/* SIGNAL INTELLIGENCE ENGINE v8.1 — ported 1:1 from Asma v8.1. Set CFG.GAS_URL, CFG.WA_NUM, CFG.WA_TEXT, Pixel ID. */
 (function () {
   'use strict';
   var CFG = {
-    GAS_URL:'https://script.google.com/macros/s/AKfycbx6J4rZ3vmapo7Jjpj-8LaMv6B0jdiZA8x2lY9h0jZ5YlVT5CwPcT7T29zuaXYQDeLU6Q/exec',
-    WA_URL:'https://wa.me/918082521698?text=Salaam%20Rakhshii%2C%20I%20would%20like%20to%20talk',
+    GAS_URL:'https://script.google.com/macros/s/AKfycbwuya9PfsDc4vHL-yVot2nm_B2AGS5XXK40N48WCWqxVGnhYFoThGUILWseS4CG38RY/exec',
+    WA_NUM:'918082521698',
+    WA_TEXT:'Salaam Rakhshii, I would like to talk',
     VERSION:'8.1', TIER_HIGH:65, TIER_MED:40, TIER_LOW:12,
     HIGH_TESTI_S:12, HIGH_HESIT_MIN:500, HIGH_HESIT_MAX:10000, VALUE_MIN:50, VALUE_MAX:500,
     WEIGHTS:{time_on_page:0.30,scroll_depth:0.25,scroll_reversals:0.20,section_attn:0.15,copy_detected:0.10},
@@ -498,6 +500,21 @@ footer .fl{color:var(--gold2);font-family:'Fraunces';font-size:1.1rem;font-weigh
   async function hashStr(s){if(!s||!window.crypto||!window.crypto.subtle)return '';try{var b=new TextEncoder().encode(s.trim().toLowerCase());var h=await window.crypto.subtle.digest('SHA-256',b);return Array.from(new Uint8Array(h)).map(function(x){return x.toString(16).padStart(2,'0');}).join('');}catch(_){return '';}}
   function setLS(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}
   function getLS(k){try{return JSON.parse(localStorage.getItem(k)||'null');}catch(_){return null;}}
+  function getPlatform(){var u=navigator.userAgent||'';if(/Android/i.test(u))return 'android';if(/iPhone|iPad|iPod/i.test(u))return 'ios';return 'other';}
+  function openWhatsApp(){
+    var msg=encodeURIComponent(CFG.WA_TEXT);
+    var num=CFG.WA_NUM;
+    var plat=getPlatform();
+    if(plat==='android'){
+      var intent='intent://send?phone='+num+'&text='+msg+'#Intent;scheme=whatsapp;package=com.whatsapp;end';
+      try{window.location.href=intent;return;}catch(_){}
+    }
+    var deep='whatsapp://send?phone='+num+'&text='+msg;
+    var fallback='https://wa.me/'+num+'?text='+msg;
+    var t=setTimeout(function(){window.location.href=fallback;},700);
+    window.addEventListener('blur',function once(){clearTimeout(t);window.removeEventListener('blur',once);},{once:true});
+    try{window.location.href=deep;}catch(_){clearTimeout(t);window.location.href=fallback;}
+  }
   function getDeviceType(){return /tablet|ipad/i.test(navigator.userAgent)?'tablet':/mobile|android|iphone/i.test(navigator.userAgent)?'mobile':'desktop';}
   function getConnection(){try{var c=navigator.connection||navigator.mozConnection;return c?(c.effectiveType||'unk'):'unk';}catch(_){return 'unk';}}
   function timeOnPage(){return Math.round((Date.now()-STATE.startTime)/1000);}
@@ -520,7 +537,7 @@ footer .fl{color:var(--gold2);font-family:'Fraunces';font-size:1.1rem;font-weigh
   function initSectionTracking(){if(!('IntersectionObserver' in window))return;var S=[{id:'intro',weight:1.5},{id:'trust',weight:2.0},{id:'learn',weight:2.5},{id:'testi',weight:2.5},{id:'about',weight:1.5},{id:'final',weight:2.5}];var tW=S.reduce(function(a,s){return a+s.weight;},0);S.forEach(function(sec){var el=document.getElementById(sec.id);if(!el)return;new IntersectionObserver(function(es){es.forEach(function(en){var sd=STATE.sectionDwellMap[sec.id]=STATE.sectionDwellMap[sec.id]||{totalS:0,enterMs:0};if(en.isIntersecting){sd.enterMs=Date.now();}else if(sd.enterMs){sd.totalS+=(Date.now()-sd.enterMs)/1000;sd.enterMs=0;if(sec.id==='testi')STATE.testiDwellS=sd.totalS;if(STATE.sectionsViewed.indexOf(sec.id)===-1)STATE.sectionsViewed.push(sec.id);var sw=0;STATE.sectionsViewed.forEach(function(id){var s2=S.find(function(x){return x.id===id;});if(s2)sw+=s2.weight*Math.min(1,(STATE.sectionDwellMap[id]||{totalS:0}).totalS/20);});SCORE.raw.sections=Math.min(1,sw/tW);}});},{threshold:[0,0.5]}).observe(el);});}
   function initCopyDetection(){document.addEventListener('copy',function(){STATE.copyDetected=true;SCORE.raw.copy=1.0;},{passive:true});document.addEventListener('selectionchange',function(){try{if((window.getSelection()||{}).toString().length>=8){STATE.copyDetected=true;if(SCORE.raw.copy<0.8)SCORE.raw.copy=0.8;}}catch(_){}},{passive:true});}
   function initExitIntent(){var f=false;function ex(t){if(f||STATE.waClicked)return;f=true;SCORE.saveHistory(SCORE.compute());sendToGAS('ExitIntent','exit',uuid4(),{trigger:t,score_at_exit:SCORE.compute(),scroll_at_exit:STATE.maxScrollPct,time_at_exit:timeOnPage(),testi_dwell:STATE.testiDwellS});}document.addEventListener('mouseleave',function(e){if(e.clientY<=5)ex('mouse_top');});document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')ex('tab');});window.addEventListener('pagehide',function(){ex('page_hide');});window.addEventListener('beforeunload',function(){ex('unload');});}
-  function initButtonBindings(){document.querySelectorAll('[data-wa="1"]').forEach(function(el){var label=el.getAttribute('data-wa-src')||el.id||'btn';el.addEventListener('mouseenter',function(){STATE.hoverStartMs=Date.now();},{passive:true});el.addEventListener('click',function(e){e.preventDefault();goWA(label);});el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();goWA(label);}});});}
+  function initButtonBindings(){document.querySelectorAll('[data-wa="1"]').forEach(function(el){var label=el.getAttribute('data-wa-src')||el.id||'btn';el.addEventListener('mouseenter',function(){STATE.hoverStartMs=Date.now();},{passive:true});el.addEventListener('touchstart',function(e){if(e.target===el||el.contains(e.target))STATE.hoverStartMs=Date.now();},{passive:true});el.addEventListener('touchend',function(e){e.preventDefault();goWA(label);},{passive:false});el.addEventListener('click',function(e){e.preventDefault();goWA(label);});el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();goWA(label);}});});}
   function goWA(buttonId){
     if(STATE._busy)return;STATE._busy=true;STATE.waClicked=true;setTimeout(function(){STATE._busy=false;},1600);
     if(STATE.hoverStartMs>0)STATE.hesitationMs=Date.now()-STATE.hoverStartMs;
@@ -528,14 +545,11 @@ footer .fl{color:var(--gold2);font-family:'Fraunces';font-size:1.1rem;font-weigh
     var tq=STATE.testiDwellS>=CFG.HIGH_TESTI_S;var hq=STATE.hesitationMs>=CFG.HIGH_HESIT_MIN&&STATE.hesitationMs<=CFG.HIGH_HESIT_MAX;
     var tier=(score>=CFG.TIER_HIGH&&(tq||hq))?'HIGH':score>=CFG.TIER_MED?'MED':score>=CFG.TIER_LOW?'LOW':'JUNK';
     SCORE.saveHistory(score);
-    if(tier==='JUNK'){
-      setTimeout(function(){window.open(CFG.WA_URL,'_blank','noopener,noreferrer');},350);
-      // Removed 'return' to ensure JUNK tier users are still tracked in Meta Dataset
-    }
+    if(tier==='JUNK'){openWhatsApp();return;}
     var eventId=uuid4();
-    if(typeof fbq==='function'){try{fbq('track','Lead',{value:value,currency:'INR',eventID:eventId});fbq('track','Contact',{eventID:eventId+'_contact'});}catch(_){}}
+    if(typeof fbq==='function'){try{fbq('track','Lead',{value:value,currency:'INR',eventID:eventId});}catch(_){}}
     sendToGAS('Lead',buttonId,eventId,{click_ts:clickTs,client_tier:tier,testi_s:STATE.testiDwellS,hesit_ms:STATE.hesitationMs,sections:STATE.sectionsViewed.join(',')});
-    setTimeout(function(){window.open(CFG.WA_URL,'_blank','noopener,noreferrer');},350);
+    openWhatsApp();
   }
   async function sendOpenEvent(){var id=uuid4();if(typeof fbq==='function'){try{fbq('track','ViewContent',{eventID:id});}catch(_){}}sendToGAS('ViewContent','page_load',id,{});}
   async function sendToGAS(eventName,buttonId,eventId,extras){
