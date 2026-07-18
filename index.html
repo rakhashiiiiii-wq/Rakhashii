@@ -13,6 +13,16 @@
 <meta property="og:image" content="assets/hero.jpg"/>
 <title>Rakhshii — Mentoring women since 2019</title>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18328494308"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18328494308');
+</script>
+
 <!-- META PIXEL — Rakhshii Pixel + Manual Advanced Matching -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
@@ -20,7 +30,7 @@ n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq
 // AM (Manual Advanced Matching) — landing page has no email/phone form (lead capture is WhatsApp).
 // We seed external_id with an empty array here, then re-init later once the fingerprint is computed.
 // This establishes the AM structure (so Meta stops complaining) without sending PII we don't have.
-fbq('init','4674881929398451',{external_id:[]},{autoConfig:false});
+fbq('init','4674881929398451',{},{autoConfig:false});
 fbq('track','PageView');
 fbq('track','ViewContent',{content_name:'Landing Page',content_category:'Affiliate Marketing Mentor',content_type:'product'});
 </script>
@@ -488,7 +498,7 @@ footer .fl{color:var(--gold2);font-family:'Fraunces';font-size:1.1rem;font-weigh
     initBotDetection:function(){var s=this;document.addEventListener('mousemove',function(){s.mouseEvents++;},{passive:true});document.addEventListener('touchstart',function(){s.touchEvents++;},{passive:true});document.addEventListener('click',function(){if(!s.firstClickTs)s.firstClickTs=Date.now();},{passive:true,once:true});},
     isBotLikely:function(){if(navigator.webdriver)return true;var t=this.mouseEvents+this.touchEvents;var e=(Date.now()-STATE.startTime)/1000;if(e>6&&t===0)return true;if(this.firstClickTs&&(this.firstClickTs-STATE.startTime)<200)return true;return false;},
   };
-  var STATE={startTime:Date.now(),maxScrollPct:0,scrollReversals:0,lastScrollY:0,scrollPxTotal:0,scrollStartMs:Date.now(),sectionsViewed:[],sectionDwellMap:{},testiDwellS:0,copyDetected:false,hoverStartMs:0,hesitationMs:0,visitCount:1,isRepeat:false,prevBest:0,fbc:'',fbp:'',rawFbclid:'',utmSource:'',utmMedium:'',utmCampaign:'',connectionSpeed:'unknown',eventsCount:0,waClicked:false,_busy:false};
+  var STATE={startTime:Date.now(),maxScrollPct:0,scrollReversals:0,lastScrollY:0,scrollPxTotal:0,scrollStartMs:Date.now(),sectionsViewed:[],sectionDwellMap:{},testiDwellS:0,copyDetected:false,hoverStartMs:0,hesitationMs:0,visitCount:1,isRepeat:false,prevBest:0,fbc:'',fbp:'',rawFbclid:'',utmSource:'',utmMedium:'',utmCampaign:'',connectionSpeed:'unknown',clientIp:'',eventsCount:0,waClicked:false,_busy:false};
   var SCORE={
     raw:{time:0,scroll:0,reversals:0,sections:0,copy:0},prevBest:0,
     compute:function(){var w=CFG.WEIGHTS;var r=this.raw.time*w.time_on_page+this.raw.scroll*w.scroll_depth+this.raw.reversals*w.scroll_reversals+this.raw.sections*w.section_attn+this.raw.copy*w.copy_detected;if(IDENTITY.isBotLikely())r=Math.min(r,0.08);if(this.prevBest>=50&&STATE.isRepeat)r=Math.min(1,r+0.06);return Math.round(r*100);},
@@ -519,7 +529,18 @@ footer .fl{color:var(--gold2);font-family:'Fraunces';font-size:1.1rem;font-weigh
   function getConnection(){try{var c=navigator.connection||navigator.mozConnection;return c?(c.effectiveType||'unk'):'unk';}catch(_){return 'unk';}}
   function timeOnPage(){return Math.round((Date.now()-STATE.startTime)/1000);}
   async function init(){
-    await IDENTITY.build();IDENTITY.initBotDetection();
+    // Start IP fetch and Identity build in parallel to minimize latency on mobile networks
+    const ipPromise = fetch('https://api64.ipify.org?format=json').then(r => r.json()).then(j => j.ip).catch(() => '');
+    const idPromise = IDENTITY.build();
+
+    try {
+      const [ip, _] = await Promise.all([ipPromise, idPromise]);
+      STATE.clientIp = ip;
+    } catch(e) {
+      console.error('Init parallel fail', e);
+    }
+
+    IDENTITY.initBotDetection();
     STATE.fbc=resolveFbc();STATE.fbp=getCookieRaw('_fbp');STATE.rawFbclid=getRawParam('fbclid');
     STATE.utmSource=getRawParam('utm_source');STATE.utmMedium=getRawParam('utm_medium');STATE.utmCampaign=getRawParam('utm_campaign');
     var v=(getLS('lp_v')||0)+1;setLS('lp_v',v);STATE.visitCount=v;STATE.isRepeat=v>1;
@@ -527,7 +548,11 @@ footer .fl{color:var(--gold2);font-family:'Fraunces';font-size:1.1rem;font-weigh
     // AM (Manual Advanced Matching) — re-init with fingerprint as external_id so Meta can
     // dedup the anonymous PageView against the same user's later Lead event.
     // Landing page has no email/phone form, so external_id is the only AM signal we have.
-    if(typeof fbq==='function'){try{fbq('init','4674881929398451',{external_id:IDENTITY.fingerprint?[IDENTITY.fingerprint]:[]},{autoConfig:false});}catch(_){}}
+    if(typeof fbq==='function'){try{
+      var am = {};
+      if(IDENTITY.fingerprint) am.external_id = IDENTITY.fingerprint;
+      fbq('init','4674881929398451',am,{autoConfig:false});
+    }catch(_){}}
     fetchWeights();initTimeBuckets();initScrollTracking();initSectionTracking();initCopyDetection();initExitIntent();initButtonBindings();sendOpenEvent();
     console.log('[v8.1] Ready | fp:',IDENTITY.fingerprint.substring(0,10)+'…','| v#'+v);
   }
@@ -551,11 +576,22 @@ footer .fl{color:var(--gold2);font-family:'Fraunces';font-size:1.1rem;font-weigh
     sendToGAS('Lead',buttonId,eventId,{click_ts:clickTs,client_tier:tier,testi_s:STATE.testiDwellS,hesit_ms:STATE.hesitationMs,sections:STATE.sectionsViewed.join(',')});
     openWhatsApp();
   }
-  async function sendOpenEvent(){var id=uuid4();if(typeof fbq==='function'){try{fbq('track','ViewContent',{eventID:id});}catch(_){}}sendToGAS('ViewContent','page_load',id,{});}
+  async function sendOpenEvent(){
+    var pvId = uuid4();
+    var vcId = uuid4();
+    if(typeof fbq==='function'){
+      try {
+        fbq('track','PageView', {}, {eventID: pvId});
+        fbq('track','ViewContent', {content_name:'Landing Page', content_category:'Affiliate Marketing Mentor', content_type:'product'}, {eventID: vcId});
+      } catch(e) {}
+    }
+    sendToGAS('PageView', 'page_load', pvId, {});
+    sendToGAS('ViewContent', 'page_load', vcId, {});
+  }
   async function sendToGAS(eventName,buttonId,eventId,extras){
     if(!CFG.GAS_URL||CFG.GAS_URL==='YOUR_GAS_ENDPOINT_HERE')return;
     if(STATE.eventsCount>25)return;STATE.eventsCount++;
-    var p={event_name:eventName,event_id:eventId,page_url:window.location.href,referrer:document.referrer||'',fingerprint:IDENTITY.fingerprint,visit_id:IDENTITY.visitId,session_id:IDENTITY.sessionId,user_agent:navigator.userAgent,fbc:STATE.fbc,fbp:STATE.fbp,fbclid:STATE.rawFbclid,device_type:getDeviceType(),language:navigator.language||'',connection:STATE.connectionSpeed,hour_of_day:new Date().getHours(),day_of_week:new Date().getDay(),utm_source:STATE.utmSource,utm_medium:STATE.utmMedium,utm_campaign:STATE.utmCampaign,is_repeat:STATE.isRepeat,visit_count:STATE.visitCount,prev_best_score:SCORE.prevBest,time_on_page:timeOnPage(),max_scroll_pct:STATE.maxScrollPct,scroll_reversals:STATE.scrollReversals,sections_viewed:STATE.sectionsViewed.join(','),copy_detected:STATE.copyDetected,lead_score:SCORE.compute(),is_bot_likely:IDENTITY.isBotLikely(),testimonials_dwell_s:STATE.testiDwellS,hesitation_ms:STATE.hesitationMs};
+    var p={event_name:eventName,event_id:eventId,page_url:window.location.href,referrer:document.referrer||'',fingerprint:IDENTITY.fingerprint,visit_id:IDENTITY.visitId,session_id:IDENTITY.sessionId,user_agent:navigator.userAgent,client_ip_address:STATE.clientIp,fbc:STATE.fbc,fbp:STATE.fbp,fbclid:STATE.rawFbclid,device_type:getDeviceType(),language:navigator.language||'',connection:STATE.connectionSpeed,hour_of_day:new Date().getHours(),day_of_week:new Date().getDay(),utm_source:STATE.utmSource,utm_medium:STATE.utmMedium,utm_campaign:STATE.utmCampaign,is_repeat:STATE.isRepeat,visit_count:STATE.visitCount,prev_best_score:SCORE.prevBest,time_on_page:timeOnPage(),max_scroll_pct:STATE.maxScrollPct,scroll_reversals:STATE.scrollReversals,sections_viewed:STATE.sectionsViewed.join(','),copy_detected:STATE.copyDetected,lead_score:SCORE.compute(),is_bot_likely:IDENTITY.isBotLikely(),testimonials_dwell_s:STATE.testiDwellS,hesitation_ms:STATE.hesitationMs};
     if(extras)Object.keys(extras).forEach(function(k){p[k]=extras[k];});
     var body=JSON.stringify(p),sent=false;
     if(typeof navigator.sendBeacon==='function'){try{sent=navigator.sendBeacon(CFG.GAS_URL,new Blob([body],{type:'text/plain;charset=UTF-8'}));}catch(_){sent=false;}}
