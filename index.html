@@ -486,7 +486,7 @@ footer .fl{color:var(--gold2);font-family:'Fraunces';font-size:1.1rem;font-weigh
   };
   function getCookieRaw(n){var m=document.cookie.match(new RegExp('(?:^|;\\s*)'+n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'=([^;]*)'));return m?m[1]:'';}
   function getRawParam(k){var e=k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');var m=window.location.search.match(new RegExp('[?&]'+e+'=([^&]*)'));return m?m[1]:'';}
-  var PAGE_LOAD_TS=Math.floor(Date.now()/1000);
+  var PAGE_LOAD_TS=Date.now();
   function buildFbc(f){return f?'fb.1.'+PAGE_LOAD_TS+'.'+f:'';}
   function resolveFbc(){var c=getCookieRaw('_fbc');if(c)return c;var f=getRawParam('fbclid');if(f)return buildFbc(f);return '';}
   var IDENTITY={
